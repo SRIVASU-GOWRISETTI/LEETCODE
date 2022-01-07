@@ -1,0 +1,22 @@
+
+APPROACH-1----> I USED A HASHTABLE TO STORE COUNTER VALUES AND WHICHEVER IS GREATER THAN N/3 TIMES PUSH IT INTO VECTOR AND RETURN
+
+class Solution {
+public:
+    vector<int> majorityElement(vector<int>& nums) {
+        unordered_map<int,int> ans;
+        vector<int> a;
+        int n =nums.size();
+        for(int i=0;i<n;i++){
+            ans[nums[i]]++;
+            
+            
+        }
+        for(auto y:ans){
+            if(y.second>n/3){
+                 a.push_back(y.first);
+            }
+        }
+        return a;
+    }
+};

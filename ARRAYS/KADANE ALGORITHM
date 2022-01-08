@@ -1,0 +1,52 @@
+   
+   o(n^2)--->algorithm its very tedious and time taking algorithm where we traverse from one by one element of array;
+   o(1) space;
+   
+   
+   int maxSubArray(vector<int>& nums) {
+        int n =nums.size();
+       
+        int best=INT_MIN;
+        for(int i=0;i<n;i++){
+             int sum=0;
+            for(int j=i;j<n;j++){
+                sum+=nums[j];
+                best=max(best,sum);
+            }
+        }
+        return best;
+        
+    }
+    
+    o(N)---------------------------------------> KADANE ALGORITHM'S VERY SUPER EXPLAINATION<----------------------------------------------------------------------------------->
+    1. see if all elements in the array are positive the complete array will be a maximum sum subaarray and simply we will return the sum of all elements
+    
+    2. problem arrived because of introduction of negative elements...so here we are using two variables....
+    
+    (i) sum to caluculate sum
+    (ii)max which will be returned to the function and holds the capacity of storing max values among al sums performed;
+    
+    
+    step1: perform summation one by one;
+    step2:now check if sum caluculated is greater than max if so that will be our new max;
+    step 3: now check if sum<0 literally it doesnt add much value to our maximum sum subarray question and discard it like making sum =0;
+            such that a new era will continue
+            
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int n =nums.size();
+       int sum=0;
+        int max=INT_MIN;
+        for(int i=0;i<n;i++){
+             sum+=nums[i];
+            if(sum>max){
+                max=sum;
+            }
+                if(sum<0){
+                    sum=0;
+                }
+            }
+        return max;
+        }
+};

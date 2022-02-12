@@ -1,0 +1,55 @@
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        if(headA==NULL || headB==NULL){
+            return NULL;
+        }
+        if(headA==NULL && headB!=NULL){
+            return NULL;
+        }
+        if(headB==NULL && headA!=NULL){
+            return NULL;
+        }
+        
+        
+       ListNode * a=headA;
+        ListNode *b=headB;
+        int a_count=0,b_count=0;
+        int diff=0;
+        
+        while(a!=NULL){
+            a_count++;
+            a=a->next;
+        }
+        while(b!=NULL){
+            b_count++;
+            b=b->next;
+        }
+        b=headB;
+        a=headA;
+        diff=abs(a_count-b_count);
+        if(a_count<b_count){
+            
+            while(diff>0){
+                b=b->next;
+                diff--;
+                
+            }
+            }
+        if(a_count>b_count){
+           
+            while(diff>0){
+                a=a->next;
+                diff--;
+            }
+            }
+        while(a!=NULL && b!=NULL){
+            if(a==b){
+                return a;
+            }
+            a=a->next;
+            b=b->next;
+        }
+        return NULL;
+       }
+};

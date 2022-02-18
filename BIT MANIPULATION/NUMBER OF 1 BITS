@@ -1,0 +1,37 @@
+METHOD 1: USING A MATH TRICK OF N & N-1 AND INCREASING COUNT
+
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int ans=0;
+        while(n>0){
+            n=n&(n-1);
+            ans++;
+            
+        }
+        return ans;
+    }
+};
+METHOD 2: USING & WITH 1 AND RIGHT SHIFTING
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int ans=0;
+        while(n>0){
+            if((n&1)>0){
+                ans++;
+            }
+            n=n>>1;
+            
+        }
+        return ans;
+    }
+};
+method 3: USING INBUILT C++ __BUILTIN_POPCOUNT(N):
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+    
+        return __builtin_popcount(n);
+    }
+};

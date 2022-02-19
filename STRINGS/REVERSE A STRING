@@ -1,0 +1,34 @@
+APPROACH 1 :
+I WILL USE STACK AND ITS LIFO PRINCIPLE PROPERLY
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        stack<char> st;
+        for(int i=0;i<s.size();i++){
+            st.push(s[i]);
+        }
+        int i=0;
+        while(!st.empty()){
+            s[i]=st.top();
+            st.pop();
+            i++;
+        }
+    }
+};
+APPROACH 2:
+REVERSE STRING IN TWO POINTER APPROACH VERY SIMPLE WAY TO SOLVE IT 
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+    int n =s.size();
+        int st=0,l=n-1;
+        while(st<l){
+            swap(s[st],s[l]);
+            st++;
+            l--;
+        }
+    }
+};
+APPROACH 3:
+using internal reverse function appropriately
+reverse(s.begin(),s.end());

@@ -1,0 +1,56 @@
+HANDLING CORNER CASES SHOULD BE DONE VERY CAREFULLY:
+APPROACH 1: I USED TRADIONAL COUNTING METHOD AND LATER TRAVERSING AND DELETING EXACTLY THE MIDDLE ELEMENT
+class Solution {
+public:
+    ListNode* deleteMiddle(ListNode* head) {
+        if(head==NULL){
+            return NULL;
+        }
+        if(head->next==NULL){
+            return NULL;
+        }
+        ListNode* a=head;
+        int count=0;
+        while(a!=NULL){
+            count++;
+            a=a->next;
+            
+        }
+        int mid=count/2;
+        a=head;
+        
+        for(int i=0;i<mid-1;i++){
+           
+            a=a->next;
+            
+        }
+        
+      a->next=a->next->next;
+        return head;
+    }
+};
+APPROACH 2: TWO POINTER APPROACH 
+fast slow and prev one to maintain the pointer appropriately
+class Solution {
+public:
+    ListNode* deleteMiddle(ListNode* head) {
+        if(head==NULL){
+            return NULL;
+        }
+        if(head->next==NULL){
+            return NULL;
+        }
+        ListNode* slow=head;
+        ListNode* fast=head;
+        ListNode* prev=NULL;
+        while(fast!=NULL&&fast->next!=NULL){
+            prev=slow;
+            slow=slow->next;
+            fast=fast->next->next;
+            
+        }
+        prev->next=slow->next;
+        return head;
+     
+    }
+};

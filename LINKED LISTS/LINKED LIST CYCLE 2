@@ -1,0 +1,32 @@
+WISELY USING BREAK STATEMENT TO COME OUT AND COMPLETE THE PROCESS EASILY
+
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        if(head==NULL||head->next==NULL||head->next->next==NULL){
+            return NULL;
+        }
+        ListNode * fast=head;
+        ListNode * slow=head;
+        
+         
+        while(fast->next!=NULL && fast->next->next!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
+            
+            if(slow==fast){
+                break;
+                }
+            }
+        if(slow!=fast){
+            return NULL;
+        }
+        slow=head;
+        while(slow!=fast){
+                    slow=slow->next;
+                    fast=fast->next;
+                }
+        
+        return slow;
+    }
+};

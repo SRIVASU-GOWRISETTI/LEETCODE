@@ -1,0 +1,31 @@
+BEGINNER FRIENDLY APPROACH OF USING STACK:
+PUSHING EVERYTHING IN IT AND CHECKING FOR EVERY TOP ELEMENT WITH THE ORIGINAL LINKED LIST DATA STEP BY STEP AND POPPING!
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        stack<int> s;
+        ListNode* temp;
+        temp=head;
+        while(temp!=NULL){
+            
+            s.push(temp->val);
+            temp=temp->next;
+            
+        }
+        temp=head;
+        
+        while(!s.empty()){
+            
+            if(temp->val==s.top()){
+                s.pop();
+                temp=temp->next;
+            }
+            else{
+                return false;
+            }
+            
+        }
+        return true;
+        
+    }
+};

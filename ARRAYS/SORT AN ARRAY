@@ -1,0 +1,12 @@
+APPROACH 1:
+USE INBUILT SORT OF STL
+class Solution {
+public:
+    vector<int> sortArray(vector<int>& nums) {
+    sort(nums.begin(),nums.end());
+        return nums;
+    }
+};
+APPROACH 2: USING MULTISET PROPERLY
+multiset<int> ans;
+--->this will store elements with duplicate also in sorted order o(n logn) time for storing in order the complete array of n elements

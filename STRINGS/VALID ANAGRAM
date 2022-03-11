@@ -1,0 +1,43 @@
+ANAGRAM CONCEPT--->
+LENGTH SHOULD BE SAME
+SAME NUMBER OF OCCURENCES OF AN CHARACTER
+SAME CHARACTERS ON THE BOTH STRINGS
+APPROACH 1:-SORTING AND COMPARISION OF CHARCTERS IT WILL TAKE O(N LOGN)
+bool isAnagram(string a, string b){
+        
+        if(a.size()!=b.size()){
+            return false;
+        }
+        sort(a.begin(),a.end());
+        sort(b.begin(),b.end());
+        for(int i=0;i<a.size();i++){
+            if(a[i]!=b[i]){
+                return false;
+            }
+        }
+        return true;
+         }
+APPROACH 2: HASH TABLES O(N) SOLUTION
+bool isAnagram(string s, string t) {
+        int a=s.size();
+        int b=t.size();
+        if(a!=b){
+            return false;
+        }
+   unordered_map<char,int> ans1;
+
+        unordered_map<char,int> ans2;
+
+            for(int i=0;i<a;i++){
+                ans1[s[i]]++;
+                }
+        for(int i=0;i<b;i++){
+                ans2[t[i]]++;
+                }
+        for(char c='a' ;c<='z';c++){
+            if(ans1[c]!=ans2[c]){
+                return false;
+            }
+            }
+         return true;
+    }
